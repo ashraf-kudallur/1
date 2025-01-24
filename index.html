@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Credly Badges</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    header {
+      text-align: center;
+      background-color: #4CAF50;
+      color: white;
+      padding: 1em 0;
+    }
+    main {
+      padding: 20px;
+    }
+    .badge-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .badge {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background: white;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>My Credly Badges</h1>
+    <p>Showcasing my achievements and certifications</p>
+  </header>
+  <main>
+    <div class="badge-container" id="badgeContainer">
+      <!-- Badges will be dynamically inserted here -->
+    </div>
+  </main>
+  <footer>
+    <p>&copy; 2025 ashraf. All Rights Reserved.</p>
+  </footer>
+
+  <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+  <script>
+    // List of Credly badge IDs
+    const badgeIDs = [
+      "21b79013-a964-49d1-a359-0121dbbbb416", // Badge 1
+      "a0a42a77-7362-4e3d-9a83-848130b5d0b0", // Badge 2
+      "96f29ba6-d5e2-4175-b9e2-3ab86c8f5ae4"  // Badge 3
+    ];
+
+    // Reference to the badge container
+    const badgeContainer = document.getElementById("badgeContainer");
+
+    // Generate and add badges to the container
+    badgeIDs.forEach(badgeID => {
+      const badgeDiv = document.createElement("div");
+      badgeDiv.className = "badge";
+      badgeDiv.innerHTML = `
+        <div data-iframe-width="150" data-iframe-height="270" 
+          data-share-badge-id="${badgeID}" 
+          data-share-badge-host="https://www.credly.com">
+        </div>
+      `;
+      badgeContainer.appendChild(badgeDiv);
+    });
+  </script>
+</body>
+</html>
+
